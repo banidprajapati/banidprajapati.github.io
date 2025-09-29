@@ -4,8 +4,6 @@ import localFont from "next/font/local";
 const myFont = localFont({ src: "./fonts/PPHatton-Bold.otf" });
 import { projects } from "./data/projects";
 
-export const runtime = "edge";
-
 const skillsLogos = [
 	"HTML",
 	"CSS",

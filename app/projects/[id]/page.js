@@ -1,14 +1,19 @@
-"use client";
 // Import necessary modules
-import { useParams } from "next/navigation";
 import { projects } from "../../data/projects";
 import Image from "next/image";
+import { notFound } from "next/navigation";
 
-export const runtime = "edge";
+// Generate static params for all project IDs
+export function generateStaticParams() {
+	// Flatten all project arrays and extract IDs
+	const allProjects = Object.values(projects).flat();
+	return allProjects.map((project) => ({
+		id: project.id,
+	}));
+}
 
-const ProjectPage = () => {
-	// Get the project id from the URL params
-	const { id } = useParams();
+const ProjectPage = ({ params }) => {
+	const { id } = params;
 
 	// Function to find the project based on the id
 	const findProjectById = () => {
@@ -25,7 +30,7 @@ const ProjectPage = () => {
 
 	// If project is not found, render "Project not found" message
 	if (!project) {
-		return <p>Project not found.</p>;
+		notFound();
 	}
 
 	// Render the project details if found
@@ -65,7 +70,7 @@ const ProjectPage = () => {
 					<Image
 						src={project.main_image}
 						alt={project.title}
-						layout="fill"
+						fill
 						className="object-cover rounded-lg"
 					/>
 				</div>

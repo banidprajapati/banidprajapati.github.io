@@ -122,7 +122,7 @@ export default function RootLayout({ children }) {
 							<ul className="text-base sm:text-lg md:text-xl lg:text-2xl">
 								<li className="py-2">
 									<a
-										href="/Banid_Prajapati_CV.pdf"
+										href="/Banid Prajapati CV.pdf"
 										download
 										className="hover:text-red-500 hover:underline"
 									>

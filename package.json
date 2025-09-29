@@ -8,7 +8,8 @@
 		"start": "next start",
 		"lint": "next lint",
 		"pages:build": "npx @cloudflare/next-on-pages",
-		"export": "next build && next export"
+		"export": "next build",
+		"static": "next build && next export"
 	},
 	"dependencies": {
 		"@radix-ui/react-aspect-ratio": "^1.1.0",
